@@ -10,9 +10,9 @@ class App extends Component {
     this.state = {
       newItem: '',
       todoItems: [
-        { title: 'Go Shopping' },
-        { title: 'Play Football' },
-        { title: 'Have dinner' },
+        { title: 'Go Shopping', isComplete: false },
+        { title: 'Play Football', isComplete: false },
+        { title: 'Have dinner', isComplete: false },
       ]
     }
   }
