@@ -6,7 +6,7 @@
   font-weight: 300;
   font-size: 24px;
   color: #4d4d4d;
-  padding: 10px 5px;
+  padding: 10px 10px;
   border-bottom: 1px solid #bebebe;
   display: flex;
 }
@@ -17,7 +17,7 @@
 
 .Todo > p {
   margin: 0;
-  margin: 0 0 0 15px;
+  margin: 0 0 0 20px;
 }
 
 .Todo-completed > p {
