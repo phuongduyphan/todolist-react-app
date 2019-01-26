@@ -1,0 +1,12 @@
+button {
+  all: unset;
+  margin: 0 5px;
+  font-family: 'Helvetica Neue',
+  Helvetica,
+  Arial,
+  sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #4d4d4d;
+  cursor: pointer;
+}
