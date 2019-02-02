@@ -5,6 +5,11 @@ export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 // action creators
 
+export const requestTodos = (filter) => ({
+  type: 'REQUEST_TODOS',
+  filter
+});
+
 export const receiveTodos = (filter, response) => ({
   type: 'RECEIVE_TODOS',
   filter,
