@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import * as actions from '../actions';
 import TodoList from '../components/TodoList';
-import { getVisibleTodos, getIsFetching } from '../reducers';
+import FetchError from '../components/FetchError';
+import { getVisibleTodos, getIsFetching, getErrorMessage } from '../reducers';
 import './spinner.css';
 
 class VisibleTodoList extends Component {
@@ -24,12 +25,21 @@ class VisibleTodoList extends Component {
   }
 
   render() {
-    const { isFetching, todos, toggleTodo } = this.props;
+    const { isFetching, errorMessage, todos, toggleTodo } = this.props;
     if (isFetching && !todos.length) {
       return (
         <div className="loader-container">
           <BounceLoader color={'#36D7B7'}></BounceLoader>
         </div>
+      )
+    }
+
+    if (errorMessage && !todos.length) {
+      return (
+        <FetchError
+          message={errorMessage}
+          onRetry={() => this.fetchData()}
+        />
       )
     }
 
@@ -43,6 +53,7 @@ const mapStateToProps = (state, { match: { params } }) => {
   const filter = params.filter || 'all';
   return {
     isFetching: getIsFetching(state, filter),
+    errorMessage: getErrorMessage(state, filter),
     todos: getVisibleTodos(state, filter),
     filter
   }
